@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta charset="utf-8"/>
+	<title>Historical Maps</title>
+
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+	<style type="text/css">
+		#map { height: 700px; }
+	</style>
+
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/leaflet.js"></script>
+
+	<script type="text/javascript">
+		window.onload = function(){
+
+			var map = L.map('map', {
+				// zoom: 16,
+				// minZoom: 13,
+				// maxZoom: 20,
+				maxBounds: [[46.6412301,23.4324747],[46.9201137,23.8047838]]
+			})
+			.fitBounds([[46.7412301, 23.53816],[46.76813, 23.59253]]);
+
+			var AltTiles = 'http://b.www.toolserver.org/tiles/bw-mapnik/{z}/{x}/{y}.png';
+			var StamenTiles = 'http://a.tile.stamen.com/toner-lite/{z}/{x}/{y}.png';
+			L.tileLayer(StamenTiles).addTo(map);
+
+			//Background tiles
+			var myTiles = 'img/1869/{z}/{x}/{y}.png';
+			var options = {
+				minZoom: 13,
+				maxZoom: 17,
+				opacity: 0.9,
+				tms: true
+			};
+			L.tileLayer(myTiles, options).addTo(map);
+		};
+	</script>
+
+</head>
+<body>
+	<div id='map'></div>
+</body>
+</html>
