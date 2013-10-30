@@ -57,14 +57,16 @@ L.Control.Slider = (function () {
 
 		_toPos: function (value) {
 			var pos = ((value - this._options.min) / this._options.step * this._stepSize);
-			pos = (pos - this._options.knobSize / 2).toFixed(2);
+			// pos = (pos - (this._stepSize + this._options.knobSize) / 2);
+			pos = (pos - this._options.knobSize / 2);
 			return pos;
 		},
 
 		_toValue: function (pos) {
-			pos += this._options.knobSize / 2;
-			var value = pos / this._stepSize * this._options.step;
-			value += this._options.min; 
+			var value = pos + this._options.knobSize / 2;
+			// var value = pos + (this._stepSize + this._options.knobSize) / 2;
+			value = value / this._stepSize * this._options.step;
+			value += this._options.min;
 			return value;
 		},
 
