@@ -109,7 +109,7 @@ L.Control.Slider = (function () {
 			min: 0,
 			max: 1,
 			step: 0.1,
-			value: 1, // window.historical.options.opacity / this.options.step
+			value: 1,
 			slider: function(){}
 		},
 
@@ -117,13 +117,8 @@ L.Control.Slider = (function () {
 			this.options = extend({}, this.defaults, options);
 			this._steps = this._steps();
 			L.Util.setOptions(this, this.options);
-		},
-
-		onAdd: function (map) {
-			this._map = map;
 
 			this._ui = this._createUI();
-
 			this._knob = new Knob(this._ui.knob, {
 				knobSize: this.options.knobSize,
 				orientation: this.options.orientation,
@@ -133,21 +128,28 @@ L.Control.Slider = (function () {
 				max: this.options.max,
 				step: this.options.step,
 			});
+			this._knob.setValue(this.options.value);
+		},
 
+		onAdd: function (map) {
+			this._map = map;
 			map.whenReady(this._updateSize, this)
-				.whenReady(this._initKnob, this)
-				.whenReady(this._initEvents, this);
-			
+			   .whenReady(this._initKnob, this)
+			   .whenReady(this._initEvents, this);
 			return this._ui.wrap;
 		},
 
 		_createUI: function () {
 			var ui = {},
-				ns = this.options.wrapClass;
+				ns = this.options.wrapClass,
+				id = this.options.id;
 
 			ui.wrap = L.DomUtil.create('div', ns + ' leaflet-bar ' + ns + '-' + this.options.orientation),
 			ui.body = L.DomUtil.create('div', ns + '-body', ui.wrap),
 			ui.knob = L.DomUtil.create('div', ns + '-knob', ui.body);
+			if (id) {
+				ui.wrap.id = id;
+			}
 
 			L.DomEvent.disableClickPropagation(ui.wrap);
 			L.DomEvent.disableClickPropagation(ui.knob);
@@ -165,7 +167,6 @@ L.Control.Slider = (function () {
 
 		_initKnob: function () {
 			this._knob.enable();
-			this._knob.setValue(this.options.value);
 		},
 
 		_initEvents: function (map) {
