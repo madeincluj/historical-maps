@@ -12,13 +12,14 @@ maps:
       - 
         - 46.798297
         - 23.631148
-  - year: 1941
-    map_year: 1941
+
+  - year: 1680
+    map_year: 1680
     maker: 
     description: 
-    s3_url: 'http://madeincluj.s3-website-eu-west-1.amazonaws.com/collection/historical-maps/1941/tiles/{z}/{x}/{y}.png'
-    local_url: 'http://localhost:8000/historical-maps/img/1941/{z}/{x}/{y}.png'
-    bounds: 
+    s3_url: 'http://madeincluj.s3-website-eu-west-1.amazonaws.com/collection/historical-maps/1680/tiles/{z}/{x}/{y}.png'
+    local_url: 'http://localhost:8000/historical-maps/img/1680/{z}/{x}/{y}.png'
+    bounds:
       - 
         - 46.749859
         - 23.558106
