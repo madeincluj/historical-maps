@@ -1,10 +1,11 @@
 {
   "maps": [
     {
-      "year": 1848,
+      "data_name": "1848-map",
       "map_year": 1869,
+      "name": "Hartă 1869",
       "maker": null,
-      "description": null,
+      "description": "Descriere",
       "s3_url": "http://madeincluj.s3-website-eu-west-1.amazonaws.com/collection/historical-maps/1869/tiles/{z}/{x}/{y}.png",
       "local_url": "http://localhost:8000/historical-maps/img/1869/{z}/{x}/{y}.png",
       "bounds": [
@@ -19,10 +20,11 @@
       ]
     },
     {
-      "year": 1680,
+      "data_name": "1848-map",
       "map_year": 1680,
+      "name": "Hartă 1680",
       "maker": null,
-      "description": null,
+      "description": "Descriere",
       "s3_url": "http://madeincluj.s3-website-eu-west-1.amazonaws.com/collection/historical-maps/1680/tiles/{z}/{x}/{y}.png",
       "local_url": "http://localhost:8000/historical-maps/img/1680/{z}/{x}/{y}.png",
       "bounds": [
